@@ -10,6 +10,9 @@ return [
         'HttpEnd'  => [],
         'LogLevel' => [],
         'LogWrite' => [],
+        'ApiEnd' => [
+            'app\listener\RequestResponseLog'
+        ],
     ],
 
     'subscribe' => [

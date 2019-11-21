@@ -7,4 +7,7 @@ use app\Request;
 return [
     'think\Request'          => Request::class,
     'think\exception\Handle' => ApiException::class,
+
+    // 模拟全局变量
+    'global_params' => app\common\containers\GlobalParams::class,
 ];

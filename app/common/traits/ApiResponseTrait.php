@@ -161,8 +161,13 @@ trait ApiResponseTrait
         $response = [
             'message' => $this->message,
             'code' => $this->code,
-            'data' => $this->data
+            'data' => $this->data,
+            'uuid' => uuid('log_'),
         ];
+
+        if (is_null(app('global_params')->getGlobal('noRequestResponseLog'))) {
+            event('ApiEnd', $response);
+        }
 
         switch ($this->method) {
             case 'jsonp':

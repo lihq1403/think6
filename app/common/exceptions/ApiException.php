@@ -22,7 +22,7 @@ class ApiException extends Handle
 
         // 404 路由未找到
         if ($e instanceof RouteNotFoundException) {
-//            return $this->emptyResponse($e->getMessage());
+            return $this->emptyResponse($e->getMessage());
         }
 
         return parent::render($request, $e);

@@ -118,7 +118,7 @@ trait ApiResponseTrait
      */
     public function setMessage(string $message)
     {
-        $this->message = $message;
+        $this->message = lang($message);
         return $this;
     }
 

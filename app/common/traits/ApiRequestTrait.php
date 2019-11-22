@@ -30,7 +30,7 @@ trait ApiRequestTrait
         if (!empty($must)) {
             foreach ($must as $item) {
                 if (empty($params[$item])) {
-                    throw new DataValidateException($item . '不能为空');
+                    throw new DataValidateException($item . ' ' . lang('require'));
                 }
             }
         }

@@ -25,6 +25,16 @@ class ApiException extends Handle
             return $this->emptyResponse($e->getMessage());
         }
 
+        // 401 未登录
+        if ($e instanceof UnauthorizedHttpException){
+            return $this->customCodeResponse($e->getCode(), $e->getMessage());
+        }
+
+        // 500 系统错误
+        if ($e instanceof SystemErrorException) {
+            return $this->customCodeResponse($e->getCode(), $e->getMessage(), []);
+        }
+
         return parent::render($request, $e);
     }
 }

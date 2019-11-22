@@ -3,8 +3,8 @@
 
 namespace app\common\containers;
 
-use app\common\exception\SystemErrorException;
-use app\common\exception\UnauthorizedHttpException;
+use app\common\exceptions\SystemErrorException;
+use app\common\exceptions\UnauthorizedHttpException;
 use Firebase\JWT\JWT;
 use think\facade\Request;
 use think\facade\Cache;
@@ -166,7 +166,7 @@ class JwtTool
     {
         $jwt_secret = config('jwt.jwt_secret');
         if (empty($jwt_secret)) {
-            throw new SystemErrorException('尚未配置jwt密钥');
+            throw new SystemErrorException('JWT key has not been configured');
         }
         return $jwt_secret . $this->scene . $this->salt;
     }

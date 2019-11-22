@@ -2,10 +2,10 @@
 
 namespace app\home\controllers;
 
-use app\common\controllers\IndexBaseController;
+use app\common\controllers\HomeBaseController;
 use app\common\exceptions\DataValidateException;
 
-class IndexController extends IndexBaseController
+class IndexController extends HomeBaseController
 {
     /**
      * @return \think\response\Json|\think\response\Jsonp

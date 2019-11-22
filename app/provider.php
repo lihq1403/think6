@@ -10,4 +10,6 @@ return [
 
     // 模拟全局变量
     'global_params' => app\common\containers\GlobalParams::class,
+    // jwt 工具类
+    'jwt_tool' => app\common\containers\JwtTool::class,
 ];

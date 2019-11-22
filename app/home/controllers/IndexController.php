@@ -15,12 +15,9 @@ class IndexController extends IndexBaseController
     {
         $params = $this->apiParams(['name']);
 
-        $this->validate($params, [
-            'name' => 'require',
-            'name2' => 'require'
-        ]);
+        $res = app('jwt_tool')->setScene('home')->jsonReturnToken(1);
 
-        return $this->successResponse('成功', $params);
+        return $this->successResponse('成功', $res);
     }
 
 }

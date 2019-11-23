@@ -35,7 +35,7 @@ class MediaController extends HomeBaseController
 
             // 如果历史记录有相同文件，则直接返回就好了
             if ($history_file = MediaRepository::instance()->historyFileHash($file)) {
-                $save_name[] = $history_file;
+                $save_name[$name] = $history_file;
                 continue;
             }
 

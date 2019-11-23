@@ -67,11 +67,18 @@ class MediaRepository
         return true;
     }
 
+    /**
+     * 文件上传并记录
+     * @param UploadedFile $file
+     * @param string $path
+     * @param string $disk
+     * @return Media|\think\Model
+     */
     public function mediaUpload(UploadedFile $file, string $path = '', string $disk = 'public')
     {
         // 保存文件
         $save_path = Filesystem::disk($disk)->putFile($path, $file);
-        app()->getBasePath();
+
         // 记录数据库
         $data = [
             'title' => $file->getOriginalName(),
@@ -84,7 +91,7 @@ class MediaRepository
             'save_way' => $disk
         ];
 
-        halt($data);
+        return Media::create($data);
     }
 
 }

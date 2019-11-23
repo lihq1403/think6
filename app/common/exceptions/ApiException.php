@@ -30,9 +30,19 @@ class ApiException extends Handle
             return $this->customCodeResponse($e->getCode(), $e->getMessage());
         }
 
+        // 402 非法请求
+        if ($e instanceof IllegalRequestException) {
+            return $this->customCodeResponse($e->getCode(), $e->getMessage());
+        }
+
         // 500 系统错误
         if ($e instanceof SystemErrorException) {
             return $this->customCodeResponse($e->getCode(), $e->getMessage(), []);
+        }
+
+        // 全局异常
+        if ($e instanceof \Exception) {
+            return $this->customCodeResponse($e->getCode(), $e->getMessage());
         }
 
         return parent::render($request, $e);

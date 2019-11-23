@@ -10,6 +10,10 @@ return [
     'no found action' => '未找到方法',
     'require' => '不能为空',
 
+    // 签名检验
+    'illegal request' => '非法请求',
+    'request expire' => '请求过期',
+
     // 文件上传提示
     'upload success' => '上传成功',
     'files require' => '文件 不可为空',

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\home\controllers;
+namespace app\home\controllers\v1;
 
 use app\common\controllers\HomeBaseController;
 use app\common\exceptions\DataValidateException;

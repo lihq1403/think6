@@ -1,6 +1,6 @@
 <?php
 
-namespace app\home\controllers;
+namespace app\home\controllers\v1;
 
 use app\common\controllers\HomeBaseController;
 use app\common\exceptions\DataValidateException;
@@ -18,12 +18,8 @@ class IndexController extends HomeBaseController
         $this->validate($params, [
             'name' => 'require'
         ]);
-        dump(config('jwt'));
-//        halt(app()->getBasePath() . 'common/lang/zh-cn/app.php');
 
-        $res = app('jwt_tool')->setScene('home')->jsonReturnToken(1);
-
-        return $this->successResponse('success', $res);
+        return $this->successResponse('success', $params);
     }
 
 }

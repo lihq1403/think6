@@ -103,3 +103,87 @@ function uuid($prefix = '')
     $uuid .= substr($chars,20,12);
     return $prefix . $uuid;
 }
+
+/**
+ * 验证url
+ * @param $str
+ * @return bool
+ */
+function is_url($str)
+{
+    if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i", $str)) {
+        return false;
+    }
+    return $str;
+}
+
+/**
+ * 限制字符串长度，超过的部分用$replace替换
+ * @param $str
+ * @param $limit
+ * @param string $replace
+ * @return string
+ */
+function limit_str($str, $limit, $replace = '...')
+{
+    if (strlen($str) <= $limit) {
+        return $str;
+    } else {
+        return mb_substr($str, 0, $limit) . $replace;
+    }
+}
+
+/**
+ * 判断是否是json格式
+ * @param $string
+ * @return bool
+ */
+function is_json($string)
+{
+    if (!is_string($string)) {
+        return false;
+    }
+    json_decode($string);
+    return (json_last_error() == JSON_ERROR_NONE);
+}
+
+/**
+ * 密码加密
+ * @param $password
+ * @return bool|string
+ */
+function password_encrypt($password)
+{
+    return password_hash($password, PASSWORD_DEFAULT);
+}
+
+/**
+ * 密码验证
+ * @param $password
+ * @param $hash
+ * @return mixed
+ */
+function password_check($password, $hash)
+{
+    return password_verify($password, $hash);
+}
+
+/**
+ * 获取分页配置
+ * @param $params
+ * @return array
+ */
+function pagination($params)
+{
+    if (empty($params['page']) || !is_numeric($params['page']) || $params['page'] <= 0) {
+        $page = 1;
+    } else {
+        $page = (int)$params['page'];
+    }
+    if (empty($params['page_rows']) || !is_numeric($params['page_rows']) || $params['page_rows'] <= 0) {
+        $page_rows = 10;
+    } else {
+        $page_rows = (int)$params['page_rows'];
+    }
+    return compact('page', 'page_rows');
+}

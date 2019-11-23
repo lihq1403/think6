@@ -16,4 +16,5 @@ return [
     'upload not allowed on current server' => '当前服务器不允许上传',
     'file size is too large' => '文件容量过大',
     'file format not allowed' => '不允许的文件格式',
+    'url is too long' => 'URL 太长了',
 ];

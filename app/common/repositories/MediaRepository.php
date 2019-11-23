@@ -8,6 +8,7 @@ use app\common\models\Media;
 use app\common\traits\SingletonTrait;
 use think\facade\Filesystem;
 use think\file\UploadedFile;
+use think\helper\Str;
 
 class MediaRepository
 {
@@ -92,6 +93,46 @@ class MediaRepository
         ];
 
         return Media::create($data);
+    }
+
+    /**
+     * 远程文件url保存
+     * @param string $url
+     * @param string $title
+     * @return Media|array|\think\Model|null
+     * @throws DataValidateException
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\DbException
+     * @throws \think\db\exception\ModelNotFoundException
+     */
+    public function urlSave(string $url, string $title = '')
+    {
+        if (Str::length($url) > 2048) {
+            // 抓取图片并保存本地
+            throw new DataValidateException('url is too long');
+        }
+
+        $save_way = 'url';
+        if (empty($title)) {
+            $title = uniqid();
+        }
+
+        $map = [
+            'file_url' => $url,
+            'save_way' => $save_way,
+        ];
+        if ($history = Media::where($map)->order('create_time', 'desc')->find()) {
+            return $history->toArray();
+        }
+
+        $data = [
+            'title' => $title,
+            'file_url' => $url,
+            'file_path' => $url,
+            'save_way' => $save_way
+        ];
+
+        return Media::create($data)->toArray();
     }
 
 }

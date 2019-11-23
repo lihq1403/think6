@@ -10,4 +10,4 @@ Route::group('api', function () {
         Route::post('local', 'media/localMediaUpload'); // 本地磁盘保存
     });
 
-});
+})->allowCrossDomain();

@@ -8,6 +8,5 @@ return [
      \think\middleware\LoadLangPack::class,
     // Session初始化
     // \think\middleware\SessionInit::class
-    // 接口签名检测
-    app\middleware\CheckApiSign::class,
+
 ];

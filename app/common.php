@@ -234,3 +234,72 @@ function pagination($params)
     }
     return compact('page', 'page_rows');
 }
+
+if (!function_exists('filter_check')) {
+    /**
+     * 使用filter_var方式验证
+     * @access public
+     * @param  mixed     $value  字段值
+     * @param  mixed     $rule  验证规则
+     * @return bool
+     */
+    function filter_check($value, $rule)
+    {
+        if (is_string($rule) && strpos($rule, ',')) {
+            list($rule, $param) = explode(',', $rule);
+        } elseif (is_array($rule)) {
+            $param = isset($rule[1]) ? $rule[1] : null;
+            $rule  = $rule[0];
+        } else {
+            $param = null;
+        }
+        return false !== filter_var($value, is_int($rule) ? $rule : filter_id($rule), $param);
+    }
+}
+
+
+/**
+ * 是否邮箱
+ * @param string $email
+ * @return bool
+ */
+function is_email(string $email)
+{
+    return filter_check($email, FILTER_VALIDATE_EMAIL);
+}
+
+/**
+ * 检测时间，如果是则返回时间戳，否则返回false
+ * @param $value
+ * @return bool|false|int
+ */
+function is_time($value)
+{
+    if (is_numeric($value)) {
+        return intval($value);
+    } else {
+        if (strtotime($value)) {
+            return strtotime($value);
+        } else {
+            return false;
+        }
+    }
+}
+
+
+/**
+ * 返回一个默认时间格式
+ * @param $value
+ * @param string $format
+ * @return false|string
+ */
+function default_time_format($value, $format = 'Y-m-d H:i:s')
+{
+    if (empty($value)) {
+        return '';
+    }
+    if (!is_time($value)) {
+        return '';
+    }
+    return date($format, $value);
+}

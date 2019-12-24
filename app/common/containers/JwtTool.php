@@ -51,6 +51,12 @@ class JwtTool
     protected $scene = '';
 
     /**
+     * 加密key，此值生效时，加盐和使用场景就无效了
+     * @var string
+     */
+    protected $key = '';
+
+    /**
      * JwtTool constructor.
      */
     public function __construct()
@@ -164,6 +170,9 @@ class JwtTool
      */
     protected function getKey()
     {
+        if (!empty($this->key)) {
+            return $this->key;
+        }
         $jwt_secret = config('jwt.jwt_secret');
         if (empty($jwt_secret)) {
             throw new SystemErrorException('JWT key has not been configured');
@@ -190,6 +199,17 @@ class JwtTool
     public function setScene(string $scene = '')
     {
         $this->scene = $scene;
+        return $this;
+    }
+
+    /**
+     * 设置key
+     * @param string $key
+     * @return $this
+     */
+    public function setKey(string $key = '')
+    {
+        $this->key = $key;
         return $this;
     }
 

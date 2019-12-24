@@ -22,5 +22,18 @@ return [
             'visibility' => 'public',
         ],
         // 更多的磁盘配置信息
+        'qcloud' => [
+            'type'       => 'qcloud',
+            'region'      => env('qcloud.REGION'),
+            'appId'      => env('qcloud.APPID'), // 域名中数字部分
+            'secretId'   => env('qcloud.SECRETID'),
+            'secretKey'  => env('qcloud.SECRETKEY'),
+            'bucket'          => env('qcloud.BUCKET'),
+            'timeout'         => 60,
+            'connect_timeout' => 60,
+            'cdn'             => '',
+            'scheme'          => 'https',
+            'read_from_cdn'   => false,
+        ]
     ],
 ];

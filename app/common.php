@@ -2,6 +2,53 @@
 // 应用公共文件
 
 /**
+ * 数组转换成树
+ * @param $array
+ * @param int $root 根节点id
+ * @param string $id 自身id名称
+ * @param string $pid 父级id名称
+ * @param string $child 子级元素名称
+ * @return array
+ */
+function array_to_tree($array, $root = 0, $id = 'id', $pid = 'pid', $child = 'child')
+{
+    $tree = [];
+    foreach ($array as $k => $v) {
+        if ($v[$pid] == $root) {
+            $v[$child] = array_to_tree($array, $v[$id], $id, $pid, $child);
+            $tree[] = $v;
+            unset($array[$k]);
+        }
+    }
+    return $tree;
+}
+
+/**
+ * 树转换成数组
+ * @param $tree
+ * @param string $id 自身id名称
+ * @param string $child 子级元素名称
+ * @return array
+ */
+function set_list($tree, $id = 'id', $child = 'child')
+{
+    $array = array();
+    foreach ($tree as $k => $val) {
+        $array[] = $val;
+        if (isset($val[$child])) {
+            $children = set_list($val[$child], $val[$id]);
+            if ($children) {
+                $array = array_merge($array, $children);
+            }
+        }
+    }
+    foreach ($array as $item) {
+        unset($item[$child]);
+    }
+    return $array;
+}
+
+/**
  * 数组递归格式化
  * @param $array
  * @param string|array $function

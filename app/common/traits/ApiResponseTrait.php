@@ -50,7 +50,7 @@ trait ApiResponseTrait
      * @param array $data
      * @return \think\response\Json|\think\response\Jsonp
      */
-    public function successResponse(string $message = 'success', array $data = [])
+    public function successResponse(string $message = 'success', $data = [])
     {
         return $this->setCode(200)->setMessage($message)->setData($data)->response();
     }
@@ -61,7 +61,7 @@ trait ApiResponseTrait
      * @param array $data
      * @return \think\response\Json|\think\response\Jsonp
      */
-    public function errorResponse(string $message = 'error', array $data = [])
+    public function errorResponse(string $message = 'error', $data = [])
     {
         return $this->setCode(400)->setMessage($message)->setData($data)->response();
     }
@@ -72,7 +72,7 @@ trait ApiResponseTrait
      * @param array $data
      * @return \think\response\Json|\think\response\Jsonp
      */
-    public function emptyResponse(string $message = 'error', array $data = [])
+    public function emptyResponse(string $message = 'error', $data = [])
     {
         return $this->setCode(404)->setMessage($message)->setData($data)->response();
     }
@@ -83,7 +83,7 @@ trait ApiResponseTrait
      * @param array $data
      * @return \think\response\Json|\think\response\Jsonp
      */
-    public function errorParamResponse(string $message = 'error', array $data = [])
+    public function errorParamResponse(string $message = 'error', $data = [])
     {
         return $this->setCode(422)->setMessage($message)->setData($data)->response();
     }
@@ -95,7 +95,7 @@ trait ApiResponseTrait
      * @param array $data
      * @return \think\response\Json|\think\response\Jsonp
      */
-    public function customCodeResponse(int $code, string $message = 'error', array $data = [])
+    public function customCodeResponse(int $code, string $message = 'error', $data = [])
     {
         return $this->setCode($code)->setMessage($message)->setData($data)->response();
     }
@@ -107,7 +107,7 @@ trait ApiResponseTrait
      * @param array $data
      * @return \think\response\Json|\think\response\Jsonp
      */
-    public function exitResponse(int $code = 500, $message = 'error', array $data = [])
+    public function exitResponse(int $code = 500, $message = 'error', $data = [])
     {
         return $this->setMethod('exit')->setCode($code)->setMessage($message)->setData($data)->response();
     }
@@ -133,10 +133,10 @@ trait ApiResponseTrait
     }
 
     /**
-     * @param array $data
+     * @param $data
      * @return $this
      */
-    public function setData(array $data)
+    public function setData($data)
     {
         $this->data = $data;
         return $this;

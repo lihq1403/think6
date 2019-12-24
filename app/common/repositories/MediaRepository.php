@@ -5,8 +5,10 @@ namespace app\common\repositories;
 use app\common\exceptions\DataValidateException;
 use app\common\exceptions\SystemErrorException;
 use app\common\models\Media;
+use app\common\models\MediaCategory;
 use app\common\traits\SingletonTrait;
 use think\facade\Filesystem;
+use think\facade\Request;
 use think\file\UploadedFile;
 use think\helper\Str;
 
@@ -24,10 +26,26 @@ class MediaRepository
      */
     public function historyFileHash(UploadedFile $file)
     {
+        return $this->getInfoByHash($file->md5(), $file->sha1());
+    }
+
+    /**
+     * 通过md5和sha1查找文件
+     * @param string $md5
+     * @param string $sha1
+     * @return array|bool
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\DbException
+     * @throws \think\db\exception\ModelNotFoundException
+     */
+    public function getInfoByHash(string $md5, string $sha1 = '')
+    {
         $map = [
-            'md5' => $file->md5(),
-            'sha1' => $file->sha1()
+            ['md5', '=', $md5]
         ];
+        if (!empty($sha1)) {
+            $map[] = ['sha1', '=', $sha1];
+        }
         $info = Media::where($map)->order('create_time', 'desc')->find();
         if (empty($info)) {
             return false;
@@ -80,12 +98,15 @@ class MediaRepository
         // 保存文件
         $save_path = Filesystem::disk($disk)->putFile($path, $file);
 
+        // 根据驱动返回url
+        $url = $this->getDomain($disk) . '/'. $save_path;
+
         // 记录数据库
         $data = [
             'title' => $file->getOriginalName(),
             'file_type' => $file->getOriginalMime(),
             'file_size' => $file->getSize(),
-            'file_url' => $save_path,
+            'file_url' => $url,
             'file_path' => $save_path,
             'md5' => $file->md5(),
             'sha1' => $file->sha1(),
@@ -133,6 +154,88 @@ class MediaRepository
         ];
 
         return Media::create($data)->toArray();
+    }
+
+    /**
+     * 获取域名
+     * @param string $disk
+     * @return string
+     */
+    public function getDomain(string $disk)
+    {
+        $disk_config = config('filesystem.disks.'.$disk);
+        switch ($disk) {
+            case 'public':
+                return Request::domain().$disk_config['url'];
+            case 'qcloud':
+                return "https://{$disk_config['bucket']}-{$disk_config['appId']}.cos.{$disk_config['region']}.myqcloud.com";
+            default:
+                return '';
+        }
+    }
+
+    /**
+     * 查询媒体信息
+     * @param int $id
+     * @return array
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\DbException
+     * @throws \think\db\exception\ModelNotFoundException
+     */
+    public function getInfo(int $id)
+    {
+        if (empty($id)) {
+            return [];
+        }
+
+        // 先检查是否查询过了
+        $query = app('global_params')->getGlobal('query_media_'.$id) ?? [];
+        if (!empty($query)) {
+            return $query;
+        }
+
+        $media_info = Media::find($id);
+        if (empty($media_info)) {
+            app('global_params')->setGlobal('query_media_'.$id, []);
+            return [];
+        }
+
+        $media_info = $media_info->toArray();
+
+        app('global_params')->setGlobal('query_media_'.$id, $media_info);
+
+        return $media_info;
+    }
+
+    /**
+     * @param int $id
+     * @return mixed|string
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\DbException
+     * @throws \think\db\exception\ModelNotFoundException
+     */
+    public function getUrl(int $id)
+    {
+        $media_info = $this->getInfo($id);
+        return $media_info['file_url'] ?? '';
+    }
+
+    /**
+     * 获取父id下所有子id
+     * @param int $pid
+     * @return array
+     */
+    public function getAllChildIdByPid(array $pid)
+    {
+        $all_id = $pid;
+        while ($pid) {
+            $pid = MediaCategory::where('pid', 'in', $pid)->column('id');
+            if (empty($pid)) {
+                break;
+            }
+            $all_id = array_merge($all_id, $pid);
+        }
+        return $all_id;
     }
 
 }

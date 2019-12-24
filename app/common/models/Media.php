@@ -2,11 +2,18 @@
 
 namespace app\common\models;
 
+use app\common\repositories\MediaRepository;
+
 class Media extends BaseModel
 {
     public $hidden = [
-        'delete_time', 'save_way', 'md5', 'sha1', 'file_path', 'update_time', 'create_time', 'status', 'type'
+        'delete_time', 'md5', 'sha1', 'update_time', 'create_time', 'status', 'type'
     ];
+
+    public function category()
+    {
+        return $this->belongsToMany(MediaCategory::class, MediaCategoryPivot::class, 'media_category_id', 'media_id');
+    }
 
     /**
      * 根据不同类型获取文件路径
@@ -16,13 +23,6 @@ class Media extends BaseModel
      */
     public function getFileUrlAttr($file_url, $data)
     {
-        switch ($data['save_way']) {
-            case 'public':
-                return '/storage/' . $file_url;
-            case 'url':
-                return $file_url;
-            default:
-                return $file_url;
-        }
+        return MediaRepository::instance()->getDomain($data['save_way']) . '/'. $data['file_path'];
     }
 }

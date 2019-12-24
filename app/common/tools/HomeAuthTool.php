@@ -15,6 +15,7 @@ class HomeAuthTool
 
     /**
      * HomeAuthTool constructor.
+     * @throws CommonException
      * @throws UnauthorizedHttpException
      * @throws \think\db\exception\DataNotFoundException
      * @throws \think\db\exception\DbException
@@ -23,7 +24,7 @@ class HomeAuthTool
     public function __construct()
     {
         if (empty($this->user)) {
-            $this->user = UserRepository::instance()->getInfoByFiled('id', app('global_params')->getGlobal(UserRepository::instance()->login_global_name, 0));
+            $this->user = UserRepository::instance()->getInfoByFiled('id', app('global_params')->getGlobal(UserRepository::instance()->getLoginGlobalName(), 0));
             if (!$this->user) {
                 throw new UnauthorizedHttpException();
             }

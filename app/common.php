@@ -303,3 +303,57 @@ function default_time_format($value, $format = 'Y-m-d H:i:s')
     }
     return date($format, $value);
 }
+
+/**
+ * 生成随机字符串
+ * @param int $length 生成长度
+ * @param int $type 字符串类型 0-7 8种模式
+ * @return string
+ */
+function random_string($length = 6, $type = 0): string
+{
+    $chars = [
+        '0123456789',
+        'abcdefghijklmnopqrstuvwxyz',
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+        '!@#$%^&*()-_ []{}<>~`+=,.;:/?|'
+    ];
+    $char_seeder = '';
+    switch ($type) {
+        case 1:
+            $char_seeder = $chars[1];
+            break;
+        case 2:
+            $char_seeder = $chars[2];
+            break;
+        case 3:
+            $char_seeder = $chars[3];
+            break;
+        case 4:
+            $char_seeder = $chars[0] . $chars[1];
+            break;
+        case 5:
+            $char_seeder = $chars[1] . $chars[2];
+            break;
+        case 6:
+            $char_seeder = $chars[0] . $chars[1] . $chars[2];
+            break;
+        case 7:
+            $char_seeder = $chars[0] . $chars[1] . $chars[2] . $chars[3];
+            break;
+        case 0:
+        default:
+            $char_seeder = $chars[0];
+            break;
+    }
+    $random_string = '';
+    for ($i = 0; $i < $length; $i++) {
+        // 这里提供两种字符获取方式
+        // 第一种是使用 substr 截取$chars中的任意一位字符；
+        // 第二种是取字符数组 $chars 的任意元素
+        // $random_string .= substr($char_seeder, mt_rand(0, strlen($char_seeder) - 1), 1);
+        $random_string .= $char_seeder[mt_rand(0, strlen($char_seeder) - 1)];
+    }
+
+    return $random_string;
+}

@@ -9,6 +9,15 @@ return [
     'JWT key has not been configured' => '尚未配置jwt密钥',
     'no found action' => '未找到方法',
     'require' => '不能为空',
+    'wrong username or password' => '用户名或密码错误',
+    'account is disabled' => '账户被禁用',
+    'login success' => '登录成功',
+    'no modification' => '无修改',
+    'no data update' => '无内容修改',
+    'please delete the child category' => '请先删除下级子分类',
+    'account exist' => '账号已存在',
+    'old password error' => '原密码错误',
+    'the account has not been registered' => '该账户还未注册',
 
     // 签名检验
     'illegal request' => '非法请求',

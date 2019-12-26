@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c225a0bedac953798711b68ed3cc0481",
+    "content-hash": "3bac8bee5d708cc0658b7d6e58487189",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -527,6 +527,57 @@
             "time": "2018-07-09T20:51:04+00:00"
         },
         {
+            "name": "lihq1403/think-rbac",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lihq1403/think-rbac.git",
+                "reference": "ca3ef1d8253543d2fa2acad2661677e4570d9956"
+            },
+            "dist": {
+                "type": "tar",
+                "url": "https://packagist.lihq.xyz/dist/lihq1403/think-rbac/lihq1403-think-rbac-ca3ef1d8253543d2fa2acad2661677e4570d9956-zip-f22f0b.tar",
+                "reference": "ca3ef1d8253543d2fa2acad2661677e4570d9956",
+                "shasum": "a3ca0b74becc491641244e0e7e1c5c76664a9ad4"
+            },
+            "require": {
+                "php": ">=7.0",
+                "topthink/framework": "^6.0",
+                "topthink/think-migration": "^3.0"
+            },
+            "require-dev": {
+                "topthink/think": "^6.0"
+            },
+            "type": "think-extend",
+            "extra": {
+                "think": {
+                    "services": [
+                        "Lihq1403\\ThinkRbac\\RBACService"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Lihq1403\\ThinkRbac\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "lihq1403",
+                    "email": "lihqing1403@gmail.com"
+                }
+            ],
+            "description": "thinkphp-rbac",
+            "support": {
+                "source": "https://github.com/lihq1403/think-rbac/tree/1.0.3",
+                "issues": "https://github.com/lihq1403/think-rbac/issues"
+            },
+            "time": "2019-12-26T09:54:52+00:00"
+        },
+        {
             "name": "liz/flysystem-qiniu",
             "version": "v1.21",
             "source": {
@@ -911,16 +962,16 @@
         },
         {
             "name": "qcloud/cos-sdk-v5",
-            "version": "v2.0.4",
+            "version": "v2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tencentyun/cos-php-sdk-v5.git",
-                "reference": "4e7e8e1a78159e87c318e5449a1e6f095660cc5b"
+                "reference": "fa6791c0761a35f4d2493eaf31ed326b56cc0a32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tencentyun/cos-php-sdk-v5/zipball/4e7e8e1a78159e87c318e5449a1e6f095660cc5b",
-                "reference": "4e7e8e1a78159e87c318e5449a1e6f095660cc5b",
+                "url": "https://api.github.com/repos/tencentyun/cos-php-sdk-v5/zipball/fa6791c0761a35f4d2493eaf31ed326b56cc0a32",
+                "reference": "fa6791c0761a35f4d2493eaf31ed326b56cc0a32",
                 "shasum": ""
             },
             "require": {
@@ -954,7 +1005,7 @@
                 "php",
                 "qcloud"
             ],
-            "time": "2019-11-29T04:14:17+00:00"
+            "time": "2019-12-24T09:54:39+00:00"
         },
         {
             "name": "qcloud_sts/qcloud-sts-sdk",
@@ -1092,17 +1143,17 @@
         },
         {
             "name": "thans/thinkphp-filesystem-cloud",
-            "version": "v1.0.2",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/QThans/thinkphp-filesystem-cloud.git",
-                "reference": "b8d6d61a8b28df12ae9b1b19249b90e8a645ffa2"
+                "url": "https://github.com/lihq1403/thinkphp-filesystem-cloud.git",
+                "reference": "05feb002ccbee16661b30632bb097ad3f3f0d0fe"
             },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/QThans/thinkphp-filesystem-cloud/zipball/b8d6d61a8b28df12ae9b1b19249b90e8a645ffa2",
-                "reference": "b8d6d61a8b28df12ae9b1b19249b90e8a645ffa2",
-                "shasum": ""
+                "type": "tar",
+                "url": "https://packagist.lihq.xyz/dist/thans/thinkphp-filesystem-cloud/thans-thinkphp-filesystem-cloud-05feb002ccbee16661b30632bb097ad3f3f0d0fe-zip-1cdd33.tar",
+                "reference": "05feb002ccbee16661b30632bb097ad3f3f0d0fe",
+                "shasum": "afe6edfbcd874151e83746312add1dbc117493cc"
             },
             "require": {
                 "liz/flysystem-qiniu": "^1.10",
@@ -1124,7 +1175,6 @@
                     "thans\\filesystem\\": "src/"
                 }
             },
-            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1135,20 +1185,23 @@
                 }
             ],
             "description": "thinkphp6.0 filesystem,include Aliyun and Qiniu",
-            "time": "2019-11-29T00:57:33+00:00"
+            "support": {
+                "source": "https://github.com/lihq1403/thinkphp-filesystem-cloud/tree/1.1.1"
+            },
+            "time": "2019-11-28T12:09:22+00:00"
         },
         {
             "name": "topthink/framework",
-            "version": "v6.0.0",
+            "version": "v6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/top-think/framework.git",
-                "reference": "79c555aab0313d1a33ddcdb3c395f2c47f37f597"
+                "reference": "501f3dd17dc6266e17b7d8df3e9fd090bd2cc85f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/top-think/framework/zipball/79c555aab0313d1a33ddcdb3c395f2c47f37f597",
-                "reference": "79c555aab0313d1a33ddcdb3c395f2c47f37f597",
+                "url": "https://api.github.com/repos/top-think/framework/zipball/501f3dd17dc6266e17b7d8df3e9fd090bd2cc85f",
+                "reference": "501f3dd17dc6266e17b7d8df3e9fd090bd2cc85f",
                 "shasum": ""
             },
             "require": {
@@ -1197,7 +1250,7 @@
                 "orm",
                 "thinkphp"
             ],
-            "time": "2019-10-23T23:28:43+00:00"
+            "time": "2019-12-24T07:57:03+00:00"
         },
         {
             "name": "topthink/think-helper",
@@ -1334,16 +1387,16 @@
         },
         {
             "name": "topthink/think-orm",
-            "version": "v2.0.28",
+            "version": "v2.0.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/top-think/think-orm.git",
-                "reference": "ff5f112f5559497222f2716385b5a709ab82741b"
+                "reference": "37cde31af3725cf5460ad8dc18032326b88e6310"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/top-think/think-orm/zipball/ff5f112f5559497222f2716385b5a709ab82741b",
-                "reference": "ff5f112f5559497222f2716385b5a709ab82741b",
+                "url": "https://api.github.com/repos/top-think/think-orm/zipball/37cde31af3725cf5460ad8dc18032326b88e6310",
+                "reference": "37cde31af3725cf5460ad8dc18032326b88e6310",
                 "shasum": ""
             },
             "require": {
@@ -1375,7 +1428,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2019-11-17T07:53:45+00:00"
+            "time": "2019-12-23T13:50:01+00:00"
         },
         {
             "name": "xxtime/flysystem-aliyun-oss",

@@ -24,7 +24,8 @@
         "topthink/think-migration": "^3.0",
         "firebase/php-jwt": "^5.0",
         "thans/thinkphp-filesystem-cloud": "^1.0",
-        "qcloud_sts/qcloud-sts-sdk": "^3.0"
+        "qcloud_sts/qcloud-sts-sdk": "^3.0",
+        "lihq1403/think-rbac": "^1.0"
     },
     "require-dev": {
         "symfony/var-dumper": "^4.2",
@@ -46,5 +47,9 @@
             "@php think service:discover",
             "@php think vendor:publish"
         ]
-    }
+    },
+    "repositories": [{
+        "type": "composer",
+        "url": "https://packagist.lihq.xyz"
+    }]
 }

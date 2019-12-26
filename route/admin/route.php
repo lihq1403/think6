@@ -63,7 +63,7 @@ Route::group('api/admin', function () {
             Route::post('admin-user/sync-role', 'Lihq1403\ThinkRbac\controller\RBACController@userSyncRoles'); // 同步管理员角色
 
             // 日志管理
-            Route::get('logs', 'Lihq1403\ThinkRbac\controller\RBACController@getBackendLog'); // 获取日志
+            Route::get('logs', 'Lihq1403\ThinkRbac\controller\RBACController@getLog'); // 获取日志
         });
 
     })->middleware('admin_auth');

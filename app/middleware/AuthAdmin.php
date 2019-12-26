@@ -29,7 +29,7 @@ class AuthAdmin
 //
 //        // 记录登录信息
 //        app('global_params')->setGlobal(AdminUserRepository::instance()->getLoginGlobalName(), $admin_user_info->uid);
-        app('global_params')->setGlobal(AdminUserRepository::instance()->getLoginGlobalName(), 1);
+        app('global_params')->setGlobal(AdminUserRepository::instance()->getLoginGlobalName(), 2);
 
         return $next($request);
     }

@@ -5,5 +5,6 @@
 return [
     // 指令定义
     'commands' => [
+        'jwt:generate_user' => \app\common\command\GenerateToken::class
     ],
 ];

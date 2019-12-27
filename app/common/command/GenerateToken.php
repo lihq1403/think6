@@ -38,10 +38,10 @@ class GenerateToken extends Command
         }
         switch ($scene) {
             case 'home':
-                $scene = AdminUserRepository::instance()->getLoginScene();
+                $scene = UserRepository::instance()->getLoginScene();
                 break;
             case 'admin':
-                $scene = UserRepository::instance()->getLoginScene();
+                $scene = AdminUserRepository::instance()->getLoginScene();
                 break;
         }
 

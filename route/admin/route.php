@@ -36,6 +36,13 @@ Route::group('api/admin', function () {
         Route::put('media', 'Media/update');
         Route::delete('media', 'Media/destroy');
 
+        // 开放商户管理
+        Route::post('open-app', 'OpenApp/store');
+        Route::put('open-app', 'OpenApp/update');
+        Route::get('open-apps', 'OpenApp/index');
+        Route::delete('open-app', 'OpenApp/destroy');
+        Route::post('open-app/change-status', 'OpenApp/changeStatus');
+
         // rbac 管理
         Route::group('rbac', function () {
 

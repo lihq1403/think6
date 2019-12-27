@@ -8,17 +8,17 @@
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
-            "version": "v2.3.0",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aliyun/aliyun-oss-php-sdk.git",
-                "reference": "e69f57916678458642ac9d2fd341ae78a56996c8"
+                "reference": "053d7ba9e798e4c09b9c5c1edab153d25ea9643a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/aliyuncs/oss-sdk-php/aliyuncs-oss-sdk-php-v2.3.0-e69f5791.zip",
-                "reference": "e69f57916678458642ac9d2fd341ae78a56996c8",
-                "shasum": "2c200019349e4fac2cc641de00c12ff411cda9d8"
+                "url": "https://api.github.com/repos/aliyun/aliyun-oss-php-sdk/zipball/053d7ba9e798e4c09b9c5c1edab153d25ea9643a",
+                "reference": "053d7ba9e798e4c09b9c5c1edab153d25ea9643a",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3"
@@ -33,18 +33,19 @@
                     "OSS\\": "src/OSS"
                 }
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "homepage": "http://www.aliyun.com",
-                    "name": "Aliyuncs"
+                    "name": "Aliyuncs",
+                    "homepage": "http://www.aliyun.com"
                 }
             ],
             "description": "Aliyun OSS SDK for PHP",
             "homepage": "http://www.aliyun.com/product/oss/",
-            "time": "2018-01-08T06:59:35+00:00"
+            "time": "2019-11-15T11:05:42+00:00"
         },
         {
             "name": "firebase/php-jwt",
@@ -102,9 +103,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/guzzlehttp/command/guzzlehttp-command-1.0.0-2aaa2521.zip",
+                "url": "https://api.github.com/repos/guzzle/command/zipball/2aaa2521a8f8269d6f5dfc13fe2af12c76921034",
                 "reference": "2aaa2521a8f8269d6f5dfc13fe2af12c76921034",
-                "shasum": "98891d77f9c9e29a9b512bf1b42f44a7581bdcb5"
+                "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.2",
@@ -126,19 +127,20 @@
                     "GuzzleHttp\\Command\\": "src/"
                 }
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "homepage": "https://github.com/mtdowling",
                     "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com"
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
                 },
                 {
-                    "homepage": "https://github.com/jeremeamia",
                     "name": "Jeremy Lindblom",
-                    "email": "jeremeamia@gmail.com"
+                    "email": "jeremeamia@gmail.com",
+                    "homepage": "https://github.com/jeremeamia"
                 }
             ],
             "description": "Provides the foundation for building command-based web service clients",
@@ -154,9 +156,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/guzzlehttp/guzzle/guzzlehttp-guzzle-6.5.2-43ece0e7.zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/43ece0e75098b7ecd8d13918293029e555a50f82",
                 "reference": "43ece0e75098b7ecd8d13918293029e555a50f82",
-                "shasum": "fe3f72a845eb6aae3390b0dce9858ab9ad1f9f1c"
+                "shasum": ""
             },
             "require": {
                 "ext-json": "*",
@@ -180,21 +182,22 @@
                 }
             },
             "autoload": {
-                "files": [
-                    "src/functions_include.php"
-                ],
                 "psr-4": {
                     "GuzzleHttp\\": "src/"
-                }
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "homepage": "https://github.com/mtdowling",
                     "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com"
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
                 }
             ],
             "description": "Guzzle is a PHP HTTP client library",
@@ -220,9 +223,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/guzzlehttp/guzzle-services/guzzlehttp-guzzle-services-1.1.3-9e3abf20.zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle-services/zipball/9e3abf20161cbf662d616cbb995f2811771759f7",
                 "reference": "9e3abf20161cbf662d616cbb995f2811771759f7",
-                "shasum": "bcd31ece72b0db76eaded8303cece65a70d74bad"
+                "shasum": ""
             },
             "require": {
                 "guzzlehttp/command": "~1.0",
@@ -246,24 +249,25 @@
                     "GuzzleHttp\\Command\\Guzzle\\": "src/"
                 }
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "homepage": "https://github.com/mtdowling",
                     "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com"
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
                 },
                 {
-                    "homepage": "https://github.com/jeremeamia",
                     "name": "Jeremy Lindblom",
-                    "email": "jeremeamia@gmail.com"
+                    "email": "jeremeamia@gmail.com",
+                    "homepage": "https://github.com/jeremeamia"
                 },
                 {
-                    "homepage": "https://github.com/konafets",
                     "name": "Stefano Kowalke",
-                    "email": "blueduck@mail.org"
+                    "email": "blueduck@mail.org",
+                    "homepage": "https://github.com/konafets"
                 }
             ],
             "description": "Provides an implementation of the Guzzle Command library that uses Guzzle service descriptions to describe web services, serialize requests, and parse responses into easy to use model structures.",
@@ -279,9 +283,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/guzzlehttp/promises/guzzlehttp-promises-v1.3.1-a59da6cf.zip",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
                 "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
-                "shasum": "369df80942b5935bb51f0ab7fc44db044f548c2f"
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.5.0"
@@ -296,21 +300,22 @@
                 }
             },
             "autoload": {
-                "files": [
-                    "src/functions_include.php"
-                ],
                 "psr-4": {
                     "GuzzleHttp\\Promise\\": "src/"
-                }
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "homepage": "https://github.com/mtdowling",
                     "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com"
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
                 }
             ],
             "description": "Guzzle promises library",
@@ -329,9 +334,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/guzzlehttp/psr7/guzzlehttp-psr7-1.6.1-239400de.zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/239400de7a173fe9901b9ac7c06497751f00727a",
                 "reference": "239400de7a173fe9901b9ac7c06497751f00727a",
-                "shasum": "9e4664b7943723f6286360e8040f27f004728bf1"
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0",
@@ -355,25 +360,26 @@
                 }
             },
             "autoload": {
-                "files": [
-                    "src/functions_include.php"
-                ],
                 "psr-4": {
                     "GuzzleHttp\\Psr7\\": "src/"
-                }
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "homepage": "https://github.com/mtdowling",
                     "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com"
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
                 },
                 {
-                    "homepage": "https://github.com/Tobion",
-                    "name": "Tobias Schultze"
+                    "name": "Tobias Schultze",
+                    "homepage": "https://github.com/Tobion"
                 }
             ],
             "description": "PSR-7 message implementation that also provides common utility methods",
@@ -399,9 +405,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/league/flysystem/league-flysystem-1.0.61-4fb13c01.zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/4fb13c01784a6c9f165a351e996871488ca2d8c9",
                 "reference": "4fb13c01784a6c9f165a351e996871488ca2d8c9",
-                "shasum": "dc60a529e267f2a59b1177cbf881e8f180b68eac"
+                "shasum": ""
             },
             "require": {
                 "ext-fileinfo": "*",
@@ -441,6 +447,7 @@
                     "League\\Flysystem\\": "src/"
                 }
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -506,7 +513,7 @@
                     "League\\Flysystem\\Cached\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -521,17 +528,17 @@
         },
         {
             "name": "lihq1403/think-rbac",
-            "version": "1.0.4",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lihq1403/think-rbac.git",
-                "reference": "62e09939a7de8d1d779b882d14138827e3d31779"
+                "reference": "b931ad5c3758013e3cbb27cde077156768c5f270"
             },
             "dist": {
                 "type": "tar",
-                "url": "https://packagist.lihq.xyz/dist/lihq1403/think-rbac/lihq1403-think-rbac-62e09939a7de8d1d779b882d14138827e3d31779-zip-e11d81.tar",
-                "reference": "62e09939a7de8d1d779b882d14138827e3d31779",
-                "shasum": "870f84859442900472f3b654520ff438d0faa67d"
+                "url": "https://packagist.lihq.xyz/dist/lihq1403/think-rbac/lihq1403-think-rbac-b931ad5c3758013e3cbb27cde077156768c5f270-zip-6cd08f.tar",
+                "reference": "b931ad5c3758013e3cbb27cde077156768c5f270",
+                "shasum": "728dc4376c33af585473de3cbcca0348136368cb"
             },
             "require": {
                 "php": ">=7.0",
@@ -565,10 +572,10 @@
             ],
             "description": "thinkphp-rbac",
             "support": {
-                "source": "https://github.com/lihq1403/think-rbac/tree/1.0.4",
+                "source": "https://github.com/lihq1403/think-rbac/tree/1.0.1",
                 "issues": "https://github.com/lihq1403/think-rbac/issues"
             },
-            "time": "2019-12-26T10:10:20+00:00"
+            "time": "2019-12-27T01:50:01+00:00"
         },
         {
             "name": "liz/flysystem-qiniu",
@@ -580,9 +587,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/liz/flysystem-qiniu/liz-flysystem-qiniu-v1.21-19a612bb.zip",
+                "url": "https://api.github.com/repos/l396635210/flysystem-qiniu/zipball/19a612bbdec919ed2c27f2d058bcb1853e697b7a",
                 "reference": "19a612bbdec919ed2c27f2d058bcb1853e697b7a",
-                "shasum": "5a4bc4373016e150eb99b71a9b03fb989a5425bf"
+                "shasum": ""
             },
             "require": {
                 "league/flysystem": "^1.0",
@@ -595,6 +602,7 @@
                     "Liz\\Flysystem\\QiNiu\\": "src"
                 }
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -617,9 +625,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/opis/closure/opis-closure-3.5.1-93ebc571.zip",
+                "url": "https://api.github.com/repos/opis/closure/zipball/93ebc5712cdad8d5f489b500c59d122df2e53969",
                 "reference": "93ebc5712cdad8d5f489b500c59d122df2e53969",
-                "shasum": "52caaa52669b927050fb159461176558bd0734fc"
+                "shasum": ""
             },
             "require": {
                 "php": "^5.4 || ^7.0"
@@ -635,13 +643,14 @@
                 }
             },
             "autoload": {
-                "files": [
-                    "functions.php"
-                ],
                 "psr-4": {
                     "Opis\\Closure\\": "src/"
-                }
+                },
+                "files": [
+                    "functions.php"
+                ]
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -677,9 +686,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/overtrue/flysystem-cos/overtrue-flysystem-cos-2.0.0-98738403.zip",
+                "url": "https://api.github.com/repos/overtrue/flysystem-cos/zipball/987384030c6491384d3945ee00d1dc6af29dd435",
                 "reference": "987384030c6491384d3945ee00d1dc6af29dd435",
-                "shasum": "7e54c3ad161cfe1f820d46ae06ba218967aaaab5"
+                "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.3",
@@ -698,6 +707,7 @@
                     "Overtrue\\Flysystem\\Cos\\": "src"
                 }
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -738,7 +748,7 @@
                     "Psr\\Cache\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -784,7 +794,7 @@
                     "Psr\\Container\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -815,9 +825,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/psr/http-message/psr-http-message-1.0.1-f6561bf2.zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
                 "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
-                "shasum": "c8318b697a6a270bd13f68908282f3596eb94389"
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
@@ -833,13 +843,14 @@
                     "Psr\\Http\\Message\\": "src/"
                 }
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "homepage": "http://www.php-fig.org/",
-                    "name": "PHP-FIG"
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
                 }
             ],
             "description": "Common interface for HTTP messages",
@@ -882,7 +893,7 @@
                     "Psr\\Log\\": "Psr/Log/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -929,7 +940,7 @@
                     "Psr\\SimpleCache\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -959,9 +970,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/qcloud/cos-sdk-v5/qcloud-cos-sdk-v5-v2.0.5-fa6791c0.zip",
+                "url": "https://api.github.com/repos/tencentyun/cos-php-sdk-v5/zipball/fa6791c0761a35f4d2493eaf31ed326b56cc0a32",
                 "reference": "fa6791c0761a35f4d2493eaf31ed326b56cc0a32",
-                "shasum": "12c9fdda838c3761a4ff1266d1614f23880ed29b"
+                "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "~6.3",
@@ -974,6 +985,7 @@
                     "Qcloud\\Cos\\": "src/"
                 }
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1005,9 +1017,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/qcloud_sts/qcloud-sts-sdk/qcloud_sts-qcloud-sts-sdk-3.0.1-d668a18a.zip",
+                "url": "https://api.github.com/repos/bradyxiao/qcloud-php-sts/zipball/d668a18ace5606f2d277de944b0b6b377891434b",
                 "reference": "d668a18ace5606f2d277de944b0b6b377891434b",
-                "shasum": "bb325aa3b42b1e4c0763c7419f2ccb0ec3ef07ff"
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
@@ -1018,6 +1030,7 @@
                     "php\\": "sts/"
                 }
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1047,9 +1060,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/qiniu/php-sdk/qiniu-php-sdk-v7.2.10-d8998716.zip",
+                "url": "https://api.github.com/repos/qiniu/php-sdk/zipball/d89987163f560ebf9dfa5bb25de9bd9b1a3b2bd8",
                 "reference": "d89987163f560ebf9dfa5bb25de9bd9b1a3b2bd8",
-                "shasum": "9a8f751b0519714ed5f78897c9113e2ec1a9f683"
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
@@ -1060,21 +1073,22 @@
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "src/Qiniu/functions.php"
-                ],
                 "psr-4": {
                     "Qiniu\\": "src/Qiniu"
-                }
+                },
+                "files": [
+                    "src/Qiniu/functions.php"
+                ]
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "homepage": "http://www.qiniu.com",
                     "name": "Qiniu",
-                    "email": "sdk@qiniu.com"
+                    "email": "sdk@qiniu.com",
+                    "homepage": "http://www.qiniu.com"
                 }
             ],
             "description": "Qiniu Resource (Cloud) Storage SDK for PHP",
@@ -1097,9 +1111,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/ralouphie/getallheaders/ralouphie-getallheaders-3.0.3-120b605d.zip",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822",
                 "reference": "120b605dfeb996808c31b6477290a714d356e822",
-                "shasum": "df29504a0c03f30167beabc8d3fe07dd2cfdb852"
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.6"
@@ -1114,6 +1128,7 @@
                     "src/getallheaders.php"
                 ]
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1185,9 +1200,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/topthink/framework/topthink-framework-v6.0.1-501f3dd1.zip",
+                "url": "https://api.github.com/repos/top-think/framework/zipball/501f3dd17dc6266e17b7d8df3e9fd090bd2cc85f",
                 "reference": "501f3dd17dc6266e17b7d8df3e9fd090bd2cc85f",
-                "shasum": "c8e8f793af978c3d9269cfc54e943efc6f2d2335"
+                "shasum": ""
             },
             "require": {
                 "ext-json": "*",
@@ -1214,6 +1229,7 @@
                     "think\\": "src/think/"
                 }
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "Apache-2.0"
             ],
@@ -1248,13 +1264,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/top-think/think-helper/zipball/4d85dfd3778623bbb1de3648f1dcd0c82f4439f4",
                 "reference": "4d85dfd3778623bbb1de3648f1dcd0c82f4439f4",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0"
@@ -1268,7 +1278,7 @@
                     "src/helper.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "Apache-2.0"
             ],
@@ -1362,7 +1372,7 @@
                     "think\\app\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "Apache-2.0"
             ],
@@ -1385,9 +1395,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/topthink/think-orm/topthink-think-orm-v2.0.29-37cde31a.zip",
+                "url": "https://api.github.com/repos/top-think/think-orm/zipball/37cde31af3725cf5460ad8dc18032326b88e6310",
                 "reference": "37cde31af3725cf5460ad8dc18032326b88e6310",
-                "shasum": "e0bf769a43b91ce8261d4a4bcdec975ac9bdc714"
+                "shasum": ""
             },
             "require": {
                 "ext-json": "*",
@@ -1398,11 +1408,12 @@
             },
             "type": "library",
             "autoload": {
-                "files": [],
                 "psr-4": {
                     "think\\": "src"
-                }
+                },
+                "files": []
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "Apache-2.0"
             ],
@@ -1429,9 +1440,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/xxtime/flysystem-aliyun-oss/xxtime-flysystem-aliyun-oss-1.5.0-ae873b59.zip",
+                "url": "https://api.github.com/repos/xxtime/flysystem-aliyun-oss/zipball/ae873b5919076157b9cfeaf39d2f56d2dbb39ee9",
                 "reference": "ae873b5919076157b9cfeaf39d2f56d2dbb39ee9",
-                "shasum": "8bf9f29870b92dd543a9fea7f673b4fe13b617df"
+                "shasum": ""
             },
             "require": {
                 "aliyuncs/oss-sdk-php": "~2.3",
@@ -1444,15 +1455,16 @@
                     "Xxtime\\Flysystem\\Aliyun\\": "src/"
                 }
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "role": "Developer",
-                    "homepage": "https://github.com/xxtime",
                     "name": "Joe",
-                    "email": "joe@xxtime.com"
+                    "email": "joe@xxtime.com",
+                    "homepage": "https://github.com/xxtime",
+                    "role": "Developer"
                 }
             ],
             "description": "AliYun OSS adapter for flysystem. aliyuncs/oss-sdk-php ~2.3",
@@ -1476,9 +1488,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/symfony/polyfill-mbstring/symfony-polyfill-mbstring-v1.13.1-7b4aab97.zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/7b4aab9743c30be783b73de055d24a39cf4b954f",
                 "reference": "7b4aab9743c30be783b73de055d24a39cf4b954f",
-                "shasum": "20da2c6116d5f6b62b0ce0db93dea9d11462622d"
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
@@ -1493,13 +1505,14 @@
                 }
             },
             "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ],
                 "psr-4": {
                     "Symfony\\Polyfill\\Mbstring\\": ""
-                }
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1509,8 +1522,8 @@
                     "email": "p@tchwork.com"
                 },
                 {
-                    "homepage": "https://symfony.com/contributors",
-                    "name": "Symfony Community"
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill for the Mbstring extension",
@@ -1534,9 +1547,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/symfony/polyfill-php72/symfony-polyfill-php72-v1.13.1-66fea50f.zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php72/zipball/66fea50f6cb37a35eea048d75a7d99a45b586038",
                 "reference": "66fea50f6cb37a35eea048d75a7d99a45b586038",
-                "shasum": "1d5b174bd8106c153b34f04acb286d43a9e72058"
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
@@ -1548,13 +1561,14 @@
                 }
             },
             "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ],
                 "psr-4": {
                     "Symfony\\Polyfill\\Php72\\": ""
-                }
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1564,8 +1578,8 @@
                     "email": "p@tchwork.com"
                 },
                 {
-                    "homepage": "https://symfony.com/contributors",
-                    "name": "Symfony Community"
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill backporting some PHP 7.2+ features to lower PHP versions",
@@ -1588,9 +1602,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.huaweicloud.com/repository/php/dist/symfony/var-dumper/symfony-var-dumper-v4.4.2-be330f91.zip",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/be330f919bdb395d1e0c3f2bfb8948512d6bdd99",
                 "reference": "be330f919bdb395d1e0c3f2bfb8948512d6bdd99",
-                "shasum": "979fb2d25b51fa760de4e62841d013f69c2a4a31"
+                "shasum": ""
             },
             "require": {
                 "php": "^7.1.3",
@@ -1632,6 +1646,7 @@
                     "/Tests/"
                 ]
             },
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1641,8 +1656,8 @@
                     "email": "p@tchwork.com"
                 },
                 {
-                    "homepage": "https://symfony.com/contributors",
-                    "name": "Symfony Community"
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony mechanism for exploring and dumping PHP variables",
@@ -1687,7 +1702,7 @@
                     "think\\trace\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://repo.packagist.org/downloads/",
             "license": [
                 "Apache-2.0"
             ],

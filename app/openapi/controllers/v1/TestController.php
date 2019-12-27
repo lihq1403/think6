@@ -5,6 +5,7 @@ namespace app\openapi\controllers\v1;
 use app\common\controllers\OpenApiBaseController;
 use app\common\exceptions\IllegalRequestException;
 use app\common\libs\ApiSignLib;
+use app\common\repositories\OpenAppRepository;
 
 class TestController extends OpenApiBaseController
 {
@@ -16,14 +17,14 @@ class TestController extends OpenApiBaseController
      */
     public function storeSign()
     {
-        $params = $this->apiParams(['apptype', 'timestamp', 'randomstr'], ['apptype', 'timestamp', 'randomstr']);
+        $params = $this->apiParams(['appid', 'timestamp', 'randomstr'], ['appid', 'timestamp', 'randomstr']);
 
         $timestamp = $params['timestamp'];
 
         // 检测app_type
-        $key = ApiSignLib::getAppTypeKey($params['apptype']);
+        $key = OpenAppRepository::instance()->getAppKeyByAppid($params['appid']);
         if (empty($key)) {
-            throw new IllegalRequestException('invalid apptype');
+            throw new IllegalRequestException('invalid appid');
         }
 
         // 生成签名

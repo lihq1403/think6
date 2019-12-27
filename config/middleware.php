@@ -4,7 +4,8 @@ return [
     // 别名或分组
     'alias'    => [
         'api_sign' => [
-            \app\middleware\CheckApiSign::class
+            \app\middleware\CheckApiSign::class,
+            \app\middleware\OpenAppUseLog::class,
         ],
         'home_auth' => [
             \app\middleware\AuthHome::class,

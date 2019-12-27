@@ -34,6 +34,7 @@ class OpenAppUseLog extends Migrator
             ->addColumn('method', 'string', ['default'=>'', 'comment'=>'请求方式'])
             ->addColumn('path', 'string', ['default'=>'', 'comment'=>'请求路径'])
             ->addColumn('ip', 'integer', ['default' => 0, 'comment' => '请求ip', 'null' => false, 'signed' => false])
+            ->addColumn('header', 'text', ['comment'=>'请求header'])
             ->addColumn('input', 'text', ['comment'=>'请求参数'])
             ->addColumn('output', 'text', ['comment'=>'返回参数'])
             ->addColumn('create_time', 'integer', ['default' => 0, 'comment' => '创建时间', 'null' => false])

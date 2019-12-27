@@ -34,6 +34,15 @@ return [
             'cdn'             => '',
             'scheme'          => 'https',
             'read_from_cdn'   => false,
-        ]
+        ],
+        'aliyun' => [
+            'type'         => 'aliyun',
+            'accessId'     => env('aliyun_oss.OSS_ACCESS_KEY_ID'),
+            'accessSecret' => env('aliyun_oss.OSS_ACCESS_KEY_SECRET'),
+            'bucket'       => env('aliyun_oss.OSS_BUCKET_NAME'),
+            'endpoint'     => env('aliyun_oss.OSS_END_POINT'),
+            'url'          => env('aliyun_oss.OSS_HOST'),
+            'dir'          => env('aliyun_oss.OSS_DIR'),
+        ],
     ],
 ];

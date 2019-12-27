@@ -5,6 +5,7 @@ namespace app\admin\controllers;
 use app\common\controllers\AdminBaseController;
 use app\common\exceptions\DataValidateException;
 use app\common\libs\CosStsLib;
+use app\common\libs\OssPolicyLib;
 use app\common\models\Media;
 use app\common\repositories\MediaRepository;
 use think\facade\Cache;
@@ -104,6 +105,49 @@ class UploadController extends AdminBaseController
     }
 
     /**
+     * 阿里云oss保存
+     * @param Request $request
+     * @return \think\response\Json|\think\response\Jsonp
+     * @throws DataValidateException
+     * @throws \app\common\exceptions\SystemErrorException
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\DbException
+     * @throws \think\db\exception\ModelNotFoundException
+     */
+    public function aLiYun(Request $request)
+    {
+        $files = $request->file();
+
+        if (empty($files)) {
+            throw new DataValidateException('files require');
+        }
+
+        $save_name = [];
+        foreach ($files as $name => $file) {
+            if (empty($file)) {
+                $save_name[$name] = [];
+                continue;
+            }
+
+            // 如果历史记录有相同文件，则直接返回就好了
+            if ($history_file = MediaRepository::instance()->historyFileHash($file)) {
+                $save_name[$name] = $history_file;
+                continue;
+            }
+
+            // 验证文件规则
+            MediaRepository::instance()->fileValidate($file);
+
+            // 上传并保存记录
+            $file_info = MediaRepository::instance()->mediaUpload($file, rtrim(MediaRepository::instance()->getPath('aliyun'), '/'), 'aliyun');
+
+            $save_name[$name] = $file_info;
+        }
+
+        return $this->successResponse('upload success', $save_name);
+    }
+
+    /**
      * 获取临时密钥
      * @return \think\response\Json|\think\response\Jsonp
      * @throws \Exception
@@ -118,6 +162,27 @@ class UploadController extends AdminBaseController
 
             // 防止请求过多，缓存起来
             Cache::set('cos_temp_keys', $tempKeys, $durationSeconds - 200);
+        }
+
+        return $this->successResponse('success', $tempKeys);
+    }
+
+    /**
+     * 阿里云策略直传
+     * @return \think\response\Json|\think\response\Jsonp
+     */
+    public function getALiYunPolicy()
+    {
+        // https://help.aliyun.com/document_detail/31988.html
+
+        // 有效期
+        $durationSeconds = 1800;
+
+        if (!$tempKeys = Cache::get('oss_temp_keys')) {
+            $tempKeys = OssPolicyLib::instance()->init($durationSeconds);
+
+            // 防止请求过多，缓存起来
+            Cache::set('oss_temp_keys', $tempKeys, $durationSeconds - 200);
         }
 
         return $this->successResponse('success', $tempKeys);

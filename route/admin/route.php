@@ -19,6 +19,8 @@ Route::group('api/admin', function () {
             Route::post('local', 'Upload/local'); // 本地上传
             Route::post('q-cloud', 'Upload/qCloud'); // 腾讯云上传
             Route::get('q-cloud-temp-keys', 'Upload/getQCloudTempKeys'); // 腾讯云临时密钥
+            Route::post('a-li-yun', 'Upload/aLiYun'); // 阿里云上传
+            Route::post('a-li-yun-policy', 'Upload/getALiYunPolicy'); // 阿里云getALiYunPolicy
             Route::post('info', 'Upload/info'); // info上传
         });
 

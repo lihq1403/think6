@@ -169,6 +169,27 @@ class MediaRepository
                 return Request::domain().$disk_config['url'];
             case 'qcloud':
                 return "https://{$disk_config['bucket']}-{$disk_config['appId']}.cos.{$disk_config['region']}.myqcloud.com";
+            case 'aliyun':
+                return $disk_config['url'];
+            default:
+                return '';
+        }
+    }
+
+    /**
+     * 获取存储位置
+     * @param string $disk
+     * @return string
+     */
+    public function getPath(string $disk)
+    {
+        $disk_config = config('filesystem.disks.'.$disk);
+        switch ($disk) {
+            case 'public':
+            case 'qcloud':
+                return '';
+            case 'aliyun':
+                return $disk_config['dir'];
             default:
                 return '';
         }

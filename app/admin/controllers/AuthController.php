@@ -8,6 +8,7 @@ use app\common\exceptions\DataValidateException;
 use app\common\facades\AdminAuth;
 use app\common\interfaces\AuthInterface;
 use app\common\repositories\AdminUserRepository;
+use app\common\repositories\LoginLogRepository;
 
 class AuthController extends AdminBaseController implements AuthInterface
 {
@@ -52,6 +53,9 @@ class AuthController extends AdminBaseController implements AuthInterface
         $admin_user_info->last_login_time = time();
         $admin_user_info->last_login_ip = get_client_ip();
         $admin_user_info->save();
+
+        // 记录登录日志
+        LoginLogRepository::instance()->write($admin_user_info['id'], app('http')->getName());
 
         return $this->successResponse('login success', $res);
     }

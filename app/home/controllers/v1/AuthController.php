@@ -9,6 +9,7 @@ use app\common\facades\HomeAuth;
 use app\common\interfaces\AuthInterface;
 use app\common\libs\VerificationLib;
 use app\common\models\User;
+use app\common\repositories\LoginLogRepository;
 use app\common\repositories\UserRepository;
 
 class AuthController extends HomeBaseController implements AuthInterface
@@ -66,11 +67,16 @@ class AuthController extends HomeBaseController implements AuthInterface
         $data = array_merge(UserRepository::instance()->getInitInfo(), [
             $field => $params[$field],
             'password' => password_encrypt($params['password']),
+            'last_login_time' => time(),
+            'last_login_ip' => get_client_ip(),
         ]);
         $user_info = User::create($data);
 
         // 登录token生成
         $jwt = app('jwt_tool')->setScene(UserRepository::instance()->getLoginScene())->jsonReturnToken($user_info['id']);
+
+        // 记录登录日志
+        LoginLogRepository::instance()->write($user_info['id'], app('http')->getName());
 
         return $this->successResponse('success', compact('user_info', 'jwt'));
     }
@@ -102,7 +108,7 @@ class AuthController extends HomeBaseController implements AuthInterface
         $user_info = UserRepository::instance()->getInfoByFiled($field, $params['username']);
 
         // 检验密码
-        if (!password_check($params['password'], $user_info->password)) {
+        if (empty($user_info) || !password_check($params['password'], $user_info->password)) {
             throw new CommonException('wrong username or password');
         }
 
@@ -112,6 +118,14 @@ class AuthController extends HomeBaseController implements AuthInterface
 
         // 登录token生成
         $jwt = app('jwt_tool')->setScene(UserRepository::instance()->getLoginScene())->jsonReturnToken($user_info['id']);
+
+        // 记录最后登录时间和ip
+        $user_info->last_login_time = time();
+        $user_info->last_login_ip = get_client_ip();
+        $user_info->save();
+
+        // 记录登录日志
+        LoginLogRepository::instance()->write($user_info['id'], app('http')->getName());
 
         return $this->successResponse('success', compact('user_info', 'jwt'));
     }

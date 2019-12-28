@@ -62,4 +62,25 @@ class User extends BaseModel
     {
         return emoji_decode($value);
     }
+
+    public function getLastLoginTimeAttr($time)
+    {
+        return default_time_format($time);
+    }
+
+    public function setLastLoginIpAttr($ip)
+    {
+        if (empty($ip)) {
+            return 0;
+        }
+        return ip2long($ip);
+    }
+
+    public function getLastLoginIpAttr($ip)
+    {
+        if (empty($ip)) {
+            return '';
+        }
+        return long2ip($ip);
+    }
 }

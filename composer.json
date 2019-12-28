@@ -47,9 +47,5 @@
             "@php think service:discover",
             "@php think vendor:publish"
         ]
-    },
-    "repositories": [{
-        "type": "composer",
-        "url": "https://packagist.lihq.xyz"
-    }]
+    }
 }

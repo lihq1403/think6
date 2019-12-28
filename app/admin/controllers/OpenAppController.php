@@ -3,6 +3,7 @@
 namespace app\admin\controllers;
 
 use app\common\controllers\AdminBaseController;
+use app\common\exceptions\DataValidateException;
 use app\common\libs\PageLib;
 use app\common\models\OpenApp;
 
@@ -39,6 +40,10 @@ class OpenAppController extends AdminBaseController
     public function update()
     {
         $params = $this->apiParams(['id', 'appid', 'name', 'status'], ['id']);
+
+        if (count($params) < 2) {
+            throw new DataValidateException('无修改');
+        }
 
         $this->validate($params, [
             'appid|商户id' => 'require|max:255|unique:app\common\models\OpenApp,appid,'.$params['id'],

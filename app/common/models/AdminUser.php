@@ -20,4 +20,25 @@ class AdminUser extends BaseModel
     const SUPER_ADMINISTRATOR_ID = 1;
 
     use RBACUser;
+
+    public function getLastLoginTimeAttr($time)
+    {
+        return default_time_format($time);
+    }
+
+    public function setLastLoginIpAttr($ip)
+    {
+        if (empty($ip)) {
+            return 0;
+        }
+        return ip2long($ip);
+    }
+
+    public function getLastLoginIpAttr($ip)
+    {
+        if (empty($ip)) {
+            return '';
+        }
+        return long2ip($ip);
+    }
 }

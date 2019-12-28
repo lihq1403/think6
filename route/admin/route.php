@@ -12,7 +12,16 @@ Route::group('api/admin', function () {
 
     Route::group('', function () {
 
-        Route::get('admin-user', 'Index/userInfo');
+        // 登录用户管理
+        Route::get('login-info', 'Auth/info');
+        Route::post('change-password', 'Auth/changePassword');
+
+        // 管理员管理
+        Route::post('admin-user', 'AdminUser/store');
+        Route::put('admin-user', 'AdminUser/update');
+        Route::get('admin-users', 'AdminUser/index');
+        Route::delete('admin-user', 'AdminUser/destroy');
+        Route::post('admin-user/change-status', 'AdminUser/changeStatus');
 
         // 媒体资源上传
         Route::group('upload', function () {

@@ -3,7 +3,9 @@
 namespace app\admin\controllers;
 
 use app\common\controllers\AdminBaseController;
+use app\common\exceptions\CommonException;
 use app\common\exceptions\DataValidateException;
+use app\common\facades\AdminAuth;
 use app\common\interfaces\AuthInterface;
 use app\common\repositories\AdminUserRepository;
 
@@ -43,16 +45,69 @@ class AuthController extends AdminBaseController implements AuthInterface
         $res = app('jwt_tool')->setScene(AdminUserRepository::instance()->getLoginScene())->jsonReturnToken($admin_user_info['id']);
         $res['admin_user_info'] = $admin_user_info;
 
+        // 获取用户权限
+        $res['admin_user_info']['permission'] = $admin_user_info->getUserPermission();
+
+        // 记录最后登录时间和ip
+        $admin_user_info->last_login_time = time();
+        $admin_user_info->last_login_ip = get_client_ip();
+        $admin_user_info->save();
+
         return $this->successResponse('login success', $res);
     }
 
     /**
      * 注销
+     * @return mixed|\think\response\Json|\think\response\Jsonp
      */
-    public function logout(){}
+    public function logout()
+    {
+        // 注销本系统
+        app('jwt_tool')->logout();
+        return $this->successResponse('success');
+    }
 
     /**
      * 密码重置
      */
     public function restPassword(){}
+
+    /**
+     * 获取用户信息
+     * @return \think\response\Json|\think\response\Jsonp
+     */
+    public function info()
+    {
+        $admin_user_info = AdminAuth::user();
+        $admin_user_info['permission'] = $admin_user_info->getUserPermission();
+        return $this->successResponse('获取成功', $admin_user_info);
+    }
+
+    /**
+     * 修改密码
+     * @return \think\response\Json|\think\response\Jsonp
+     * @throws CommonException
+     * @throws DataValidateException
+     */
+    public function changePassword()
+    {
+        $params = $this->apiParams(['old_password', 'password']);
+
+        $this->validate($params, [
+            'old_password' => 'require',
+            'password' => 'require|'.AdminUserRepository::instance()->getPasswordValidate(),
+        ]);
+
+        $admin_user_info = AdminAuth::user();
+
+        // 检验原密码
+        if (!password_check($params['old_password'], $admin_user_info->password)) {
+            throw new CommonException('原密码错误');
+        }
+
+        $admin_user_info->password = password_encrypt($params['password']);
+        $admin_user_info->save();
+
+        return $this->successResponse('修改成功', $admin_user_info);
+    }
 }

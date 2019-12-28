@@ -21,7 +21,7 @@ class AdminAuthTool
     public function __construct()
     {
         if (empty($this->user)) {
-            $this->user = AdminUserRepository::instance()->getInfoByFiled('id', app('global_params')->getGlobal('admin_login_uid', 0));
+            $this->user = AdminUserRepository::instance()->getInfoByFiled('id', app('global_params')->getGlobal(AdminUserRepository::instance()->getLoginGlobalName(), 0));
             if (!$this->user) {
                 throw new UnauthorizedHttpException();
             }

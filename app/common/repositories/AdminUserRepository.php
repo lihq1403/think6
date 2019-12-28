@@ -59,4 +59,13 @@ class AdminUserRepository
     {
         return AdminUser::where($field, $value)->find();
     }
+
+    /**
+     * 密码规则
+     * @return string
+     */
+    public function getPasswordValidate()
+    {
+        return 'min:6|max:16';
+    }
 }

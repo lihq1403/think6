@@ -34,7 +34,10 @@ class AdminUser extends Migrator
             ->addColumn('username', 'string', ['default' => '', 'comment' => '用户名', 'null' => false])
             ->addColumn('password', 'string', ['default' => '', 'comment' => '密码', 'null' => false])
 
-            ->addColumn('status', 'integer', ['limit' => \Phinx\Db\Adapter\MysqlAdapter::INT_TINY, 'default' => 1, 'comment' => '状态 1、开启 0、禁用', 'null' => false])
+            ->addColumn('last_login_time', 'integer', ['default' => 0, 'comment' => '最后登录时间', 'null' => false])
+            ->addColumn('last_login_ip', 'integer', ['default' => 0, 'comment' => '最后登录ip', 'null' => false, 'signed' => false])
+
+            ->addColumn('status', 'integer', ['limit' => \Phinx\Db\Adapter\MysqlAdapter::INT_TINY, 'default' => 1, 'comment' => '状态 1、开启 2、禁用', 'null' => false])
 
             ->addColumn('create_time', 'integer', ['default' => 0, 'comment' => '创建时间', 'null' => false])
             ->addColumn('update_time', 'integer', ['default' => 0, 'comment' => '更新时间', 'null' => false])

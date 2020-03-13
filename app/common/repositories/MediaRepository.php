@@ -203,7 +203,7 @@ class MediaRepository
      * @throws \think\db\exception\DbException
      * @throws \think\db\exception\ModelNotFoundException
      */
-    public function getInfo(int $id)
+    public function getInfo($id)
     {
         if (empty($id)) {
             return [];

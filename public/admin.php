@@ -11,13 +11,13 @@
 
 // [ 应用入口文件 ]
 namespace think;
-
+//var_dump('admin');exit();
 require __DIR__ . '/../vendor/autoload.php';
 
 // 执行HTTP应用并响应
 $http = (new App())->http;
 
-$response = $http->name('home')->run();
+$response = $http->name('admin')->run();
 
 $response->send();
 

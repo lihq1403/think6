@@ -74,3 +74,26 @@ throw new CommonException('msg');
 5. 尽量追求phpstorm右上角有绿色打勾，页面内没有异常着色
 6. 写完代码请按【Ctrl+Alt+L】格式化代码
 
+# 同域名nginx配置 - 伪静态
+```$xslt
+location /api/home/ {
+	index index.php;
+	if (!-e $request_filename){
+		rewrite  ^(.*)$  /index.php?s=$1  last;   break;
+	}
+}
+
+location /api/admin/ {
+	index admin.php;
+	if (!-e $request_filename){
+		rewrite  ^(.*)$  /admin.php?s=$1  last;   break;
+	}
+}
+
+location /openapi/ {
+	index openapi.php;
+	if (!-e $request_filename){
+		rewrite  ^(.*)$  /openapi.php?s=$1  last;   break;
+	}
+}
+```
